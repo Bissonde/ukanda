@@ -54,10 +54,17 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
+      
+      <template v-slot:activator="{ props }">
+      <v-btn icon density="compact" color="white" v-bind="props">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
+         <v-btn density="compact" icon="mdi-plus" color="white" v-bind="props"></v-btn>
+            
+      </template>
+      
+            
 
-      <v-col cols="auto">
-        <v-btn density="compact" icon="mdi-plus" color="white"></v-btn>
-      </v-col>
     </v-app-bar>
 
     <v-main>
@@ -69,17 +76,6 @@
       persistent
       width="1024"
     >
-      <template v-slot:activator="{ props }">
-        <div style="height: 50px;"></div>
-        <!-- <v-spacer></v-spacer>
-         -->
-        <v-btn
-          color="primary"
-          v-bind="props"
-        >
-          Open Dialog
-        </v-btn>
-      </template>
       <v-card>
         <v-card-title>
           <span class="text-h5">User Profile</span>
