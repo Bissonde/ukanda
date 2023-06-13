@@ -19,7 +19,7 @@
                   <v-list-item-title v-text="item.text"></v-list-item-title>
 
                 </v-list-item>
-                {{ item }}
+                <!-- {{ item }} -->
               <!-- </v-tabs> -->
             </v-list>
 
@@ -48,7 +48,7 @@
       <v-toolbar-title><v-icon>mdi-account-clock-outline</v-icon>&nbsp;Agendamento</v-toolbar-title>
 
 
-      <v-spacer></v-spacer>
+      <!-- <v-spacer></v-spacer> -->
 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
