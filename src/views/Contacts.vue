@@ -68,6 +68,14 @@
     </v-app-bar>
 
     <v-main>
+      <!-- <template>
+  <v-data-table
+    :headers="headers"
+    :items="desserts"
+    :items-per-page="5"
+    class="elevation-1"
+  ></v-data-table>
+</template> -->
       <!--  -->
 
   <v-row justify="center">
@@ -187,7 +195,7 @@ export default {
     drawer: false,
     items: [
       { text: 'Home', icon: 'mdi-view-dashboard', to: '/' },
-      { text: 'Audience', icon: 'mdi-account', to: 'contacts' },
+      { text: 'Contactos', icon: 'mdi-account', to: 'contacts' },
       { text: 'Grupos', icon: 'mdi-account-group', to: 'groups' },
       { text: 'Campanhas', icon: 'mdi-account-voice', to: 'campaigns' },
       { text: 'Agendamento', icon: 'mdi-account-clock', to: 'calendar' },

@@ -3,23 +3,23 @@
     <v-navigation-drawer v-model="drawer">
       <!--  -->
       <v-list-subheader>&nbsp;&nbsp;&nbsp;MENU</v-list-subheader>
-              <v-list-item-subtitle>&nbsp;&nbsp;&nbsp;Escolha uma opção</v-list-item-subtitle>
+      <v-list-item-subtitle>&nbsp;&nbsp;&nbsp;Escolha uma opção</v-list-item-subtitle>
       <v-card>
         <v-layout>
           <v-navigation-drawer floating permanent>
             <v-list density="compact" nav>
               <!-- <v-list-subheader>REPORTS</v-list-subheader> -->
               <!-- <v-tabs v-model="tab" direction="vertical" color="primary"> -->
-                <v-list-item v-for="(item, i) in items" :key="i" :value="item" :to="item.to" color="primary" rounded="sm">
+              <v-list-item v-for="(item, i) in items" :key="i" :value="item" :to="item.to" color="primary" rounded="sm">
 
-                  <template v-slot:prepend>
-                    <v-icon :icon="item.icon"></v-icon>
-                  </template>
+                <template v-slot:prepend>
+                  <v-icon :icon="item.icon"></v-icon>
+                </template>
 
-                  <v-list-item-title v-text="item.text"></v-list-item-title>
+                <v-list-item-title v-text="item.text"></v-list-item-title>
 
-                </v-list-item>
-                <!-- {{ item }} -->
+              </v-list-item>
+              <!-- {{ item }} -->
               <!-- </v-tabs> -->
             </v-list>
 
@@ -44,15 +44,29 @@
 
     <v-app-bar color="primary">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      
+
       <v-toolbar-title><v-icon>mdi-phone-message</v-icon>&nbsp;uKanda</v-toolbar-title>
 
 
-      <!-- <v-spacer></v-spacer> -->
+      <v-spacer></v-spacer>
 
+      <v-text-field 
+      @update:focused="searchClosed=false"
+      @blur="searchClosed = true"
+      v-model="search"
+      placeholder="Procurar" 
+      prepend-inner-icon="mdi-magnify" 
+      class="expanding-search mt-1" 
+      :class="{ 'closed' : searchClosed && !search }"
+      filled
+      dense
+      clearable>
+
+      </v-text-field>
+      <!-- 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      </v-btn> -->
 
 
       <v-btn icon>
@@ -76,6 +90,9 @@ const drawer = ref(false)
 export default {
   data: () => ({
     drawer: false,
+    searchText: null,
+    search: null,
+    searchClosed: true,
     items: [
       { text: 'Home', icon: 'mdi-view-dashboard', to: '/' },
       { text: 'Contactos', icon: 'mdi-account', to: 'contacts' },
@@ -93,3 +110,17 @@ export default {
 }
 </script>
 
+
+<style lang="sass">
+  .v-input.expanding-search
+    height:55px
+    transition: max-width 0.3s
+    .v-field__outline
+      &:before, &:after
+        cursor: pointer
+        border-color: transparent !important         
+    &.closed  
+        max-width: 43px
+        .v-field__outline
+          background: transparent !important
+</style>
