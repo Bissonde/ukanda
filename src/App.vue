@@ -3,7 +3,9 @@
 </template>
 
 <script setup>
-  //
+//
+// const activeColor = ref('red')
+// const fontSize = ref(30)
 </script>
 
 <!-- <script>
