@@ -64,7 +64,7 @@
       </v-btn> -->
 
 
-      <v-btn icon  color="white">
+      <v-btn icon color="white">
         <v-icon>mdi-plus-thick</v-icon>
         <v-menu activator="parent">
           <v-list>
@@ -93,45 +93,84 @@
 
     <v-main>
 
-      
       <!-- <v-breadcrumbs :items="['Foo', 'Bar', 'Fizz']"></v-breadcrumbs> -->
       <!--  -->
-      <template>
-  <v-container grid-list-md text-xs-center>
+
+  <v-container fluid grid-list-md>
     <v-layout row wrap>
-      <v-flex xs12>
-        <v-card dark color="primary">
-          <v-card-text class="px-0">12</v-card-text>
+      <v-flex d-flex xs12 sm6 md4>
+        <v-card color="purple" dark>
+          <v-card-title primary class="title">Lorem</v-card-title>
+          <v-card-text>{{ lorem }}</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex v-for="i in 2" :key="`6${i}`" xs6>
-        <v-card dark color="secondary">
-          <v-card-text class="px-0">6</v-card-text>
+      <v-flex d-flex xs12 sm6 md3>
+        <v-layout row wrap>
+          <v-flex d-flex>
+            <v-card color="indigo" dark>
+              <v-card-text>{{ lorem.slice(0, 70) }}</v-card-text>
+            </v-card>
+          </v-flex>
+          <v-flex d-flex>
+            <v-layout row wrap>
+              <v-flex
+                v-for="n in 2"
+                :key="n"
+                d-flex
+                xs12
+              >
+                <v-card
+                  color="red lighten-2"
+                  dark
+                >
+                  <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-flex>
+      <v-flex d-flex xs12 sm6 md2 child-flex>
+        <v-card color="green lighten-2" dark>
+          <v-card-text>{{ lorem.slice(0, 90) }}</v-card-text>
         </v-card>
       </v-flex>
-      <v-flex v-for="i in 3" :key="`4${i}`" xs4>
-        <v-card dark color="primary">
-          <v-card-text class="px-0">4</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex v-for="i in 4" :key="`3${i}`" xs3>
-        <v-card dark color="secondary">
-          <v-card-text class="px-0">3</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex v-for="i in 6" :key="`2${i}`" xs2>
-        <v-card dark color="primary">
-          <v-card-text class="px-0">2</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex v-for="i in 12" :key="`1${i}`" xs1>
-        <v-card dark color="secondary">
-          <v-card-text class="px-0">1</v-card-text>
+      <v-flex d-flex xs12 sm6 md3>
+        <v-card color="blue lighten-2" dark>
+          <v-card-text>{{ lorem.slice(0, 100) }}</v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
   </v-container>
-</template>
+
+      <v-container id="grid" fluid grid-list-md tag="section">
+        <v-layout row wrap>
+          <!-- <v-flex tag="h1" class="headline">Lorem Ipsum</v-flex> -->
+          <v-flex md12>
+            <v-layout column>
+              <v-flex>
+                <v-layout row wrap>
+                  <!-- <v-flex tag="h1" class="headline">Lorem Ipsum</v-flex> -->
+                  <v-flex d-flex md12 order-xs5>
+                    <v-layout column>
+                      <v-flex>
+                        <v-card flat>
+                          <v-card-text>{{ lorem }}</v-card-text>
+                        </v-card>
+                      </v-flex>
+                    </v-layout>
+                  </v-flex>
+                </v-layout>
+              </v-flex>
+              <v-flex>
+                <v-card flat>
+                  <v-card-text>{{ lorem }}</v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
 
 
 
@@ -225,52 +264,10 @@ export default {
     searchClosed: true,
     searchValue: null,
     dialog: false,
-    rowsPerPageItems: [4, 8, 12],
-      pagination: {
-        rowsPerPage: 4
-      },
-      items: [
-        {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: '14%',
-          iron: '1%'
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: '8%',
-          iron: '1%'
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: '6%',
-          iron: '7%'
-        },
-        {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: '3%',
-          iron: '8%'
-        }
-      ],
+    imgsrc: "",
+    btntext: "Show Image",
+    isLoaded: false,
+    isLoading: false,
     lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`,
     itemsM: [
       { text: 'Home', icon: 'mdi-view-dashboard', to: '/' },
@@ -391,6 +388,21 @@ export default {
   methods: {
     greet() {
       alert(`Hello !` + this.searchValue)
+    },
+    loaded() {
+      this.isLoaded = true;
+      this.isLoading = false;
+    },
+    toggleimg: function () {
+      if (this.imgsrc == "") {
+        this.isLoaded = false;
+        this.isLoading = true;
+        this.imgsrc = "https://images2.alphacoders.com/103/1039991.jpg"
+        this.btntext = "Hide Image"
+      } else {
+        this.imgsrc = ""
+        this.btntext = "Show Image"
+      }
     }
   }
 }
