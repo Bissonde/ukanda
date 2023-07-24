@@ -98,7 +98,7 @@
    
   <v-sheet
     class="mx-auto"
-    max-width="1700"
+    max-width="100%"
   >
     <v-slide-group
       show-arrows
