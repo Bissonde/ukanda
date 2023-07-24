@@ -95,104 +95,136 @@
 
       <!-- <v-breadcrumbs :items="['Foo', 'Bar', 'Fizz']"></v-breadcrumbs> -->
       <!--  -->
+   
+  <v-sheet
+    class="mx-auto"
+    max-width="1700"
+  >
+    <v-slide-group
+      show-arrows
+    >
+      <v-slide-group-item
+        v-for="n in tabMenus"
+        :key="n"
+        v-slot="{ isSelected, toggle }"
+      >
+        <!-- <v-btn
+          class="ma-2"
+          rounded
+          :color="isSelected ? 'primary' : undefined"
+          @click="toggle"
+        >
+          Options {{ n }}
+        </v-btn> -->
+        <v-card width="350" height="200" class="overflow-hidden pa-l ma-2"
+            color="#ccfg4a"
+            theme="dark"
+          >
+            <v-card-title class="text-h5">              
+              <v-icon>{{ n.icon }}</v-icon>&nbsp;{{ n.title }}
+              <v-label>{{ n.text }}</v-label>
+            </v-card-title>
 
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12 sm6 md4>
-        <v-card color="purple" dark>
-          <v-card-title primary class="title">Lorem</v-card-title>
-          <v-card-text>{{ lorem }}</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex d-flex xs12 sm6 md3>
-        <v-layout row wrap>
-          <v-flex d-flex>
-            <v-card color="indigo" dark>
-              <v-card-text>{{ lorem.slice(0, 70) }}</v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex d-flex>
-            <v-layout row wrap>
-              <v-flex
-                v-for="n in 2"
-                :key="n"
-                d-flex
-                xs12
+            <v-card-subtitle style="">Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn variant="text">
+                Expandir
+                <v-icon
+                color="orange-darken-4"
+                end
               >
-                <v-card
-                  color="red lighten-2"
-                  dark
-                >
-                  <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex d-flex xs12 sm6 md2 child-flex>
-        <v-card color="green lighten-2" dark>
-          <v-card-text>{{ lorem.slice(0, 90) }}</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex d-flex xs12 sm6 md3>
-        <v-card color="blue lighten-2" dark>
-          <v-card-text>{{ lorem.slice(0, 100) }}</v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+                mdi-open-in-new
+              </v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+      </v-slide-group-item>
+    </v-slide-group>
+  </v-sheet>
 
-      <v-container id="grid" fluid grid-list-md tag="section">
-        <v-layout row wrap>
-          <!-- <v-flex tag="h1" class="headline">Lorem Ipsum</v-flex> -->
-          <v-flex md12>
-            <v-layout column>
-              <v-flex>
-                <v-layout row wrap>
-                  <!-- <v-flex tag="h1" class="headline">Lorem Ipsum</v-flex> -->
-                  <v-flex d-flex md12 order-xs5>
-                    <v-layout column>
-                      <v-flex>
-                        <v-card flat>
-                          <v-card-text>{{ lorem }}</v-card-text>
-                        </v-card>
-                      </v-flex>
-                    </v-layout>
-                  </v-flex>
-                </v-layout>
-              </v-flex>
-              <v-flex>
-                <v-card flat>
-                  <v-card-text>{{ lorem }}</v-card-text>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-container>
+
+
+ 
+      
+
+ 
+
+        
+        
+        
+  
 
 
 
 
-      <v-container>
-        <v-data-table :headers="headers" :items="desserts" class="elevation-1">
-          <template v-slot:items="props">
-            <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="text-xs-right">{{ props.item.iron }}</td>
-          </template>
-        </v-data-table>
-      </v-container>
+
+
+  
+ 
+
+
+
+   
+
+      <!-- </v-container> -->
+
+      <!-- 
+  <v-container class="bg-surface-variant">
+    <v-row
+      class="mb-1"
+      no-gutters
+    >
+      <v-col>
+        <v-sheet class="pa-2 ma-2">
+          .v-col-auto
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-2">
+          .v-col-auto
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-2">
+          .v-col-auto
+        </v-sheet>
+      </v-col>
+
+      <v-col>
+        <v-sheet class="pa-2 ma-2">
+          .v-col-auto
+        </v-sheet>
+      </v-col>
+    </v-row>
+
+    <v-row no-gutters>
+      <v-col cols="8">
+        <v-sheet class="pa-2 ma-2">
+          .v-col-8
+        </v-sheet>
+      </v-col>
+
+      <v-col cols="4">
+        <v-sheet class="pa-2 ma-2">
+          .v-col-4
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </v-container> -->
+
+      <!-- <v-divider :thickness="1" inset></v-divider> -->
+
+
+
 
       <!-- <template> -->
-      <v-row justify="center">
-        <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition">
+      <!-- <v-row justify="center">
+        <v-dialog v-model="dialog" fullscreen :scrim="false" transition="dialog-bottom-transition" style="">
           <template v-slot:activator="{ props }">
-            <v-btn color="primary" dark v-bind="props">
+            <v-btn color="primary" tonal v-bind="props">
               Open Dialog
             </v-btn>
           </template>
@@ -237,8 +269,99 @@
             </v-list>
           </v-card>
         </v-dialog>
-      </v-row>
+      </v-row> -->
       <!-- </template> -->
+      
+
+  <v-card>
+    <v-tabs
+      v-model="tab"
+      bg-color=""
+      centered
+      
+    >
+      <v-tab value="tab-1">
+        <v-icon>mdi-phone</v-icon>
+        Recents
+      </v-tab>
+
+      <v-tab value="tab-2">
+        <v-icon>mdi-heart</v-icon>
+        Favorites
+      </v-tab>
+
+      <v-tab value="tab-3">
+        <v-icon>mdi-account-box</v-icon>
+        Nearby
+      </v-tab>
+    </v-tabs>
+
+    <v-window v-model="tab">
+      <v-window-item
+        v-for="i in 3"
+        :key="i"
+        :value="'tab-' + i"
+      >
+        <v-card>
+          <v-card-text>{{ text }}</v-card-text>
+        </v-card>
+      </v-window-item>
+
+    </v-window>
+  </v-card>
+
+
+  
+  <v-data-table-virtual
+    :headers="headers"
+    :items="virtualDesserts"
+    class="elevation-1"
+    height="400"
+    item-value="name"
+  ></v-data-table-virtual>
+
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-skeleton-loader
+          class="mx-auto border"
+          max-width="300"
+          type="card-avatar, actions"
+        ></v-skeleton-loader>
+      </v-col>
+
+      <v-col cols="12" md="6">
+        <v-skeleton-loader
+          class="mx-auto border"
+          max-width="300"
+          type="image, article"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+  </v-container>
+  
+
+  <v-sheet class="flex-1-1-100 ma-2 pa-2">
+      <v-bottom-navigation grow>
+  <v-btn value="recent">
+    <v-icon>mdi-history</v-icon>
+
+    Mensagens
+  </v-btn>
+
+  <v-btn value="favorites">
+    <v-icon>mdi-phone</v-icon>
+
+    Chamadas
+  </v-btn>
+
+  <v-btn value="nearby">
+    <v-icon>mdi-whatsapp</v-icon>
+
+    WhatsApp
+  </v-btn>
+</v-bottom-navigation>
+    </v-sheet>
 
       <router-view>
 
@@ -282,6 +405,39 @@ export default {
       { text: 'Histórico', icon: 'mdi-history', to: 'history' },
       { text: 'Configuarções', icon: 'mdi-cog', to: 'settings' },
     ],
+    tabMenus: [
+      { text: 'Dashboard', icon: 'mdi-view-dashboard', to: '/' },
+      { text: 'Contactos', icon: 'mdi-account', to: 'contacts' },
+      { text: 'Grupos', icon: 'mdi-account-group', to: 'groups' },
+      { text: 'Campanhas', icon: 'mdi-account-voice', to: 'campaigns' },
+      { text: 'Agendamento', icon: 'mdi-account-clock', to: 'calendar' },
+      { text: 'Mensagem', icon: 'mdi-message-plus', to: 'message' },
+      { text: 'Chamadas', icon: 'mdi-phone-settings', to: 'calls' },
+      { text: 'WhatsApp', icon: 'mdi-whatsapp', to: 'whatsapp' },
+      { text: 'E-mail', icon: 'mdi-email-fast-outline', to: 'email' },
+      { text: 'Histórico', icon: 'mdi-history', to: 'history' },
+      { text: 'Configuarções', icon: 'mdi-cog', to: 'settings' }
+    ],
+    tab: null,
+     model: null,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    labels: { 0: 'SU', 1: 'MO', 2: 'TU', 3: 'WED', 4: 'TH', 5: 'FR', 6: 'SA' },
+    expand: false,
+    time: 0,
+    forecast: [
+      { day: 'Tuesday', icon: 'mdi-white-balance-sunny', temp: '24\xB0/12\xB0' },
+      { day: 'Wednesday', icon: 'mdi-white-balance-sunny', temp: '22\xB0/14\xB0' },
+      { day: 'Thursday', icon: 'mdi-cloud', temp: '25\xB0/15\xB0' },
+    ],
+    cards: [
+      // { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+      // { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+      // { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
+      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+      { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
+    ],
     itemss: [
       { title: 'Meu Perfil', icon: 'mdi-account' },
       { title: 'Configurações', icon: 'mdi-cog' },
@@ -289,100 +445,100 @@ export default {
       { title: 'Convidar', icon: 'mdi-account-plus' }
     ],
     headers: [
-      {
-        text: 'Dessert (100g serving)',
-        align: 'left',
-        sortable: false,
-        value: 'name'
-      },
-      { text: 'Calories', value: 'calories' },
-      { text: 'Fat (g)', value: 'fat' },
-      { text: 'Carbs (g)', value: 'carbs' },
-      { text: 'Protein (g)', value: 'protein' },
-      { text: 'Iron (%)', value: 'iron' }
-    ],
-    desserts: [
-      {
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        iron: '1%'
-      },
-      {
-        name: 'Ice cream sandwich',
-        calories: 237,
-        fat: 9.0,
-        carbs: 37,
-        protein: 4.3,
-        iron: '1%'
-      },
-      {
-        name: 'Eclair',
-        calories: 262,
-        fat: 16.0,
-        carbs: 23,
-        protein: 6.0,
-        iron: '7%'
-      },
-      {
-        name: 'Cupcake',
-        calories: 305,
-        fat: 3.7,
-        carbs: 67,
-        protein: 4.3,
-        iron: '8%'
-      },
-      {
-        name: 'Gingerbread',
-        calories: 356,
-        fat: 16.0,
-        carbs: 49,
-        protein: 3.9,
-        iron: '16%'
-      },
-      {
-        name: 'Jelly bean',
-        calories: 375,
-        fat: 0.0,
-        carbs: 94,
-        protein: 0.0,
-        iron: '0%'
-      },
-      {
-        name: 'Lollipop',
-        calories: 392,
-        fat: 0.2,
-        carbs: 98,
-        protein: 0,
-        iron: '2%'
-      },
-      {
-        name: 'Honeycomb',
-        calories: 408,
-        fat: 3.2,
-        carbs: 87,
-        protein: 6.5,
-        iron: '45%'
-      },
-      {
-        name: 'Donut',
-        calories: 452,
-        fat: 25.0,
-        carbs: 51,
-        protein: 4.9,
-        iron: '22%'
-      },
-      {
-        name: 'KitKat',
-        calories: 518,
-        fat: 26.0,
-        carbs: 65,
-        protein: 7,
-        iron: '6%'
-      }
-    ]
+        {
+          title: 'Dessert (100g serving)',
+          align: 'start',
+          sortable: false,
+          key: 'name',
+        },
+        { title: 'Calories', align: 'end', key: 'calories' },
+        { title: 'Fat (g)', align: 'end', key: 'fat' },
+        { title: 'Carbs (g)', align: 'end', key: 'carbs' },
+        { title: 'Protein (g)', align: 'end', key: 'protein' },
+        { title: 'Iron (%)', align: 'end', key: 'iron' },
+      ],
+      desserts: [
+        {
+          name: 'Frozen Yogurt',
+          calories: 159,
+          fat: 6.0,
+          carbs: 24,
+          protein: 4.0,
+          iron: '1',
+        },
+        {
+          name: 'Ice cream sandwich',
+          calories: 237,
+          fat: 9.0,
+          carbs: 37,
+          protein: 4.3,
+          iron: '1',
+        },
+        {
+          name: 'Eclair',
+          calories: 262,
+          fat: 16.0,
+          carbs: 23,
+          protein: 6.0,
+          iron: '7',
+        },
+        {
+          name: 'Cupcake',
+          calories: 305,
+          fat: 3.7,
+          carbs: 67,
+          protein: 4.3,
+          iron: '8',
+        },
+        {
+          name: 'Gingerbread',
+          calories: 356,
+          fat: 16.0,
+          carbs: 49,
+          protein: 3.9,
+          iron: '16',
+        },
+        {
+          name: 'Jelly bean',
+          calories: 375,
+          fat: 0.0,
+          carbs: 94,
+          protein: 0.0,
+          iron: '0',
+        },
+        {
+          name: 'Lollipop',
+          calories: 392,
+          fat: 0.2,
+          carbs: 98,
+          protein: 0,
+          iron: '2',
+        },
+        {
+          name: 'Honeycomb',
+          calories: 408,
+          fat: 3.2,
+          carbs: 87,
+          protein: 6.5,
+          iron: '45',
+        },
+        {
+          name: 'Donut',
+          calories: 452,
+          fat: 25.0,
+          carbs: 51,
+          protein: 4.9,
+          iron: '22',
+        },
+        {
+          name: 'KitKat',
+          calories: 518,
+          fat: 26.0,
+          carbs: 65,
+          protein: 7,
+          iron: '6',
+        },
+      ]
   }),
 
   methods: {
@@ -404,7 +560,17 @@ export default {
         this.btntext = "Show Image"
       }
     }
-  }
+  },
+  computed: {
+      virtualDesserts () {
+        return [...Array(10000).keys()].map(i => {
+          const dessert = { ...this.desserts[i % 10] }
+          dessert.name = `${dessert.name} #${i}`
+
+          return dessert
+        })
+      }
+    }
 }
 </script>
 
